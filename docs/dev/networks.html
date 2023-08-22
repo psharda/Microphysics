@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "macros": {"rhozero": "{\\rho_0}", "pizero": "{\\pi_0}", "pizeroone": "{\\pi_0^{(1)}}", "pizerotwo": "{\\pi_0^{(2)}}", "gammabar": "{\\overline{\\Gamma}_1}", "ptl": "{{\\partial}}", "eb": "{{\\bf e}}", "fb": "{{\\bf f}}", "ib": "{{\\bf i}}", "Ub": "{{\\bf U}}", "Vb": "{{\\bf V}}", "xb": "{{\\bf x}}", "ut": "{\\tilde{u}}", "vt": "{\\tilde{v}}", "wt": "{\\tilde{w}}", "Ubt": "{\\widetilde{\\Ub}}", "edge": "{\\rm EDGE}", "mac": "{\\rm MAC}", "trans": "{\\rm TRANS}", "nablab": "{\\mathbf{\\nabla}}", "cdotb": "{\\mathbf{\\cdot}}", "half": "{\\frac{1}{2}}", "myhalf": "{\\frac{1}{2}}", "nph": "{{n + \\myhalf}}", "nmh": "{{n - \\myhalf}}", "Hext": "{{H_{\\rm ext}}}", "Hnuc": "{{H_{\\rm nuc}}}", "kth": "{k_{\\rm th}}", "pred": "{{\\rm pred}}", "Sbar": "{\\overline{S}}", "inp": "{\\mathrm{in}}", "initp": "{\\mathrm{init}}", "outp": "{\\mathrm{out}}", "uadv": "{\\widetilde{\\mathbf{U}}^{\\mathrm{ADV}}}", "uadvone": "{\\widetilde{\\mathbf{U}}^{\\mathrm{ADV},\\star}}", "uadvonedag": "{\\Ubt^{\\mathrm{ADV},\\dagger,\\star}}", "uadvtwo": "{\\widetilde{\\mathbf{U}}^{\\mathrm{ADV}}}", "uadvtwodag": "{\\Ubt^{\\mathrm{ADV},\\dagger}}", "uadvsdcstar": "{\\mathbf{U}^{\\mathrm{ADV},\\star}}", "uadvsdcpred": "{\\mathbf{U}^{\\mathrm{ADV},\\mathrm{pred}}}", "uadvsdc": "{\\mathbf{U}^{\\mathrm{ADV}}}", "dt": "{\\Delta t}", "dr": "{\\Delta r}", "etarho": "{\\eta_{\\rho}}", "etarhoec": "{\\etarho^{\\rm ec}}", "etarhocc": "{\\etarho^{\\rm cc}}", "etarhoflux": "{\\etarho^{\\rm flux}}", "divetarho": "{\\nabla\\cdot(\\etarho\\eb_r)}", "ow": "{\\overline{w}_0}", "dw": "{\\delta w_0}", "thalf": "{\\sfrac{3}{2}}", "rhop": "{{\\rho^{\\prime}}}", "omegadot": "{\\dot{\\omega}}", "er": "{\\mathbf{e}_r}", "ex": "{\\mathbf{e}_x}", "ey": "{\\mathbf{e}_y}", "ez": "{\\mathbf{e}_z}", "Omegab": "{{\\bf \\Omega}}", "rb": "{{\\bf r}}", "isotm": ["{{}^{#2}\\mathrm{#1}}", 2], "edot": "{{{\\dot{e}_\\mathrm{nuc}}}}", "enuc": "{{{{e}_\\mathrm{nuc}}}}", "edotnu": "{{{\\dot{e}_\\nu}}}", "rt": "{\\tilde{r}_0}", "rhob": "{\\ensuremath{\\rho_\\mathrm{base}}}", "Tb": "{\\ensuremath{T_\\mathrm{base}}}", "gcc": "{\\mathrm{g~cm^{-3} }}", "pb": "{p_\\mathrm{base}}", "qburn": "{q_\\mathrm{burn}}", "Uc": "{{\\boldsymbol{\\mathcal{U}}}}", "Fb": "{\\mathbf{F}}", "Sc": "{\\mathbf{S}}", "Shydro": "{{{\\bf S}^{\\mathrm{hydro}}}}", "Rb": "{{\\bf R}}", "Rq": "{{\\bf R}}", "Adv": ["{{\\left [\\boldsymbol{\\mathcal{A}} \\left(#1\\right)\\right]}}", 1], "Advs": ["{{\\boldsymbol{\\mathcal{A}} \\left(#1\\right)}}", 1], "Sdot": "{\\dot{S}}"}}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -144,17 +144,43 @@ and <span class="math notranslate nohighlight">\(\edotnu\)</span> is the neutrin
 </section>
 <section id="general-null">
 <h2>general_null<a class="headerlink" href="#general-null" title="Permalink to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">general_null</span></code> is a bare interface for a nuclear reaction network;
-no reactions are enabled, and no auxiliary variables are accepted. The
+<p><code class="docutils literal notranslate"><span class="pre">general_null</span></code> is a bare interface for a nuclear reaction network –
+no reactions are enabled. The
 data in the network is defined at compile type by specifying an
 inputs file. For example,
-<code class="docutils literal notranslate"><span class="pre">Networks/general_null/triple_alpha_plus_o.net</span></code> would describe the
+<code class="docutils literal notranslate"><span class="pre">networks/general_null/triple_alpha_plus_o.net</span></code> would describe the
 triple-<span class="math notranslate nohighlight">\(\alpha\)</span> reaction converting helium into carbon, as
-well as oxygen and iron.</p>
-<p>At compile time, the network header <code class="docutils literal notranslate"><span class="pre">network_properties.H</span></code>
-is written using the python script <code class="docutils literal notranslate"><span class="pre">write_network.py</span></code>.  The make rule
-for this is contained in <code class="docutils literal notranslate"><span class="pre">Make.package</span></code>. The name of the inputs file
-is specified by the variable <code class="docutils literal notranslate"><span class="pre">GENERAL_NET_INPUTS</span></code>.</p>
+well as oxygen and iron.  This has the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># name       short name    aion     zion</span>
+<span class="n">helium</span><span class="o">-</span><span class="mi">4</span>       <span class="n">He4</span>          <span class="mf">4.0</span>      <span class="mf">2.0</span>
+<span class="n">carbon</span><span class="o">-</span><span class="mi">12</span>      <span class="n">C12</span>         <span class="mf">12.0</span>      <span class="mf">6.0</span>
+<span class="n">oxygen</span><span class="o">-</span><span class="mi">16</span>      <span class="n">O16</span>         <span class="mf">16.0</span>      <span class="mf">8.0</span>
+<span class="n">iron</span><span class="o">-</span><span class="mi">56</span>        <span class="n">Fe56</span>        <span class="mf">56.0</span>     <span class="mf">26.0</span>
+</pre></div>
+</div>
+<p>The four columns give the long name of the species, the short form that will be used
+for plotfile variables, and the mass number, <span class="math notranslate nohighlight">\(A\)</span>, and proton number, <span class="math notranslate nohighlight">\(Z\)</span>.</p>
+<p>The name of the inputs file by one of two make variables:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">NETWORK_INPUTS</span></code> : this is simply the name of the “<cite>.net</cite>” file, without
+any path.  The build system will look for it in the current directory
+and then in <code class="docutils literal notranslate"><span class="pre">$(MICROPHYSICS_HOME)/networks/general_null/</span></code>.</p>
+<p>For the example above, we would set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NETWORK_INPUTS</span> <span class="o">:=</span> <span class="n">triple_alpha_plus_o</span><span class="o">.</span><span class="n">net</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GENERAL_NET_INPUTS</span></code> : this is the full path to the file.  For example
+we could set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GENERAL_NET_INPUTS</span> <span class="o">:=</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">file</span><span class="o">/</span><span class="n">triple_alpha_plus_o</span><span class="o">.</span><span class="n">net</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>At compile time, the “<cite>.net</cite>” file is parsed and a network header
+<code class="docutils literal notranslate"><span class="pre">network_properties.H</span></code> is written using the python script
+<code class="docutils literal notranslate"><span class="pre">write_network.py</span></code>.  The make rule for this is contained in
+<code class="docutils literal notranslate"><span class="pre">Make.package</span></code>.</p>
 </section>
 <section id="ignition-chamulak">
 <h2>ignition_chamulak<a class="headerlink" href="#ignition-chamulak" title="Permalink to this heading"></a></h2>
