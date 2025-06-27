@@ -18,7 +18,7 @@
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/copybutton.js?v=eaa7b67c"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="#" />
@@ -54,8 +54,9 @@
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_structures.html">Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="autodiff.html">Automatic Differentiation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rp_intro.html">Runtime parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build_system.html">Build System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rp_intro.html">Runtime Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamental_constants.html">Fundamental Constants</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">EOS and transport</span></p>
 <ul>
@@ -81,10 +82,12 @@
 <p class="caption" role="heading"><span class="caption-text">Util / external libraries</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="util.html">Helper Functions and Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autodiff.html">Automatic Differentiation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Unit tests</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="unit_tests.html">Overview of Unit Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unit_test_runtime_parameters.html">Unit Test Common Runtime Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="comprehensive_tests.html">Comprehensive Unit Tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="one_zone_tests.html">One Zone Tests</a></li>
 </ul>
@@ -136,7 +139,6 @@
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
  | <a href="#P"><strong>P</strong></a>
- | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
  | <a href="#U"><strong>U</strong></a>
@@ -145,7 +147,11 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="getting_started.html#index-0">AMREX_HOME</a>
+      <li><a href="build_system.html#index-2">AMReX_buildInfo.cpp</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="build_system.html#index-1">AMREX_HOME</a>, <a href="getting_started.html#index-0">[1]</a>
 </li>
   </ul></td>
 </tr></table>
@@ -157,7 +163,7 @@
 </li>
       <li><a href="unit_tests.html#index-1">burn_cell_primordial_chem</a>
 </li>
-      <li><a href="unit_tests.html#index-1">burn_cell_sdc</a>
+      <li><a href="burn_cell_sdc.html#index-0">burn_cell_sdc</a>, <a href="unit_tests.html#index-1">[1]</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -165,7 +171,7 @@
 </li>
       <li><a href="integrators.html#index-2">burn_to_integrator</a>
 </li>
-      <li><a href="data_structures.html#index-3">burn_type.H</a>
+      <li><a href="data_structures.html#index-2">burn_type.H</a>
 </li>
   </ul></td>
 </tr></table>
@@ -231,6 +237,8 @@
 </li>
       <li><a href="data_structures.html#index-0">eos_t</a>, <a href="eos.html#index-0">[1]</a>, <a href="eos_implementations.html#index-0">[2]</a>
 </li>
+      <li><a href="build_system.html#index-2">extern_parameters.H</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -242,6 +250,8 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="networks.html#index-1">general_null</a>
+</li>
+      <li><a href="design.html#index-0">GPUs</a>
 </li>
   </ul></td>
 </tr></table>
@@ -313,7 +323,13 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="getting_started.html#index-2">MICROPHYSICS_HOME</a>
+      <li><a href="build_system.html#index-0">Make.Microphysics</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="build_system.html#index-0">Make.Microphysics_extern</a>
+</li>
+      <li><a href="build_system.html#index-1">MICROPHYSICS_HOME</a>, <a href="getting_started.html#index-2">[1]</a>
 </li>
   </ul></td>
 </tr></table>
@@ -339,7 +355,9 @@
 </li>
       <li><a href="networks.html#index-2">NETWORK_INPUTS</a>
 </li>
-      <li><a href="networks.html#index-3">network_properties.H</a>
+      <li><a href="build_system.html#index-2">network_properties.H</a>, <a href="networks.html#index-3">[1]</a>
+</li>
+      <li><a href="neutrinos.html#index-0">neutrino_cooling.include_recomb</a>
 </li>
       <li><a href="nse_net.html#index-0">nse.ase_tol</a>
 </li>
@@ -375,15 +393,11 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="unit_tests.html#index-1">part_func_cell</a>
+      <li><a href="burn_cell_sdc.html#index-1">parse_integration_failure.py</a>
 </li>
   </ul></td>
-</tr></table>
-
-<h2 id="R">R</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="data_structures.html#index-2">rate_t</a>
+      <li><a href="unit_tests.html#index-1">part_func_cell</a>
 </li>
   </ul></td>
 </tr></table>
@@ -443,6 +457,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="eos.html#index-1">USE_AUX_THERMO</a>
 </li>
+      <li><a href="burn_cell_sdc.html#index-1">USE_GPU_PRINTF</a>
+</li>
       <li><a href="nse.html#index-0">USE_NSE_NET</a>
 </li>
   </ul></td>
@@ -465,7 +481,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Microphysics Development Team.</p>
+    <p>&#169; Copyright 2025, Microphysics Development Team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

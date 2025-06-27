@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>One Zone Tests &mdash; Microphysics  documentation</title>
+  <title>Fundamental Constants &mdash; Microphysics  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -26,8 +26,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="burn_cell" href="burn_cell.html" />
-    <link rel="prev" title="Comprehensive Unit Tests" href="comprehensive_tests.html" /> 
+    <link rel="next" title="Equations of State" href="eos.html" />
+    <link rel="prev" title="Parameters by Namespace" href="runtime_parameters.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,18 +50,18 @@
   </form>
 </div>
     <div class="branch">
-        Branch: <a href="../one_zone_tests.html">main</a> | <a href="./one_zone_tests.html">development</a>
+        Branch: <a href="../fundamental_constants.html">main</a> | <a href="./fundamental_constants.html">development</a>
     </div>
 
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Microphysics overview</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_structures.html">Data Structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="build_system.html">Build System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rp_intro.html">Runtime Parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fundamental_constants.html">Fundamental Constants</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Fundamental Constants</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">EOS and transport</span></p>
 <ul>
@@ -90,17 +90,11 @@
 <li class="toctree-l1"><a class="reference internal" href="autodiff.html">Automatic Differentiation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Unit tests</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="unit_tests.html">Overview of Unit Tests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unit_test_runtime_parameters.html">Unit Test Common Runtime Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="comprehensive_tests.html">Comprehensive Unit Tests</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">One Zone Tests</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="burn_cell.html"><code class="docutils literal notranslate"><span class="pre">burn_cell</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="burn_cell_sdc.html"><code class="docutils literal notranslate"><span class="pre">burn_cell_sdc</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="eos_cell.html"><code class="docutils literal notranslate"><span class="pre">eos_cell</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="jac_cell.html"><code class="docutils literal notranslate"><span class="pre">jac_cell</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="one_zone_tests.html">One Zone Tests</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul>
@@ -127,9 +121,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">One Zone Tests</li>
+      <li class="breadcrumb-item active">Fundamental Constants</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/one_zone_tests.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/fundamental_constants.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -137,12 +131,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="one-zone-tests">
-<span id="sec-one-zone-tests"></span><h1>One Zone Tests<a class="headerlink" href="#one-zone-tests" title="Link to this heading"></a></h1>
-<p>There are several tests that let you call the EOS or reaction network
-on a single zone to inspect the output directly.  Some of these
-have analysis scripts, which we describe in the next sections.</p>
-<div class="toctree-wrapper compound">
+  <section id="fundamental-constants">
+<h1>Fundamental Constants<a class="headerlink" href="#fundamental-constants" title="Link to this heading"></a></h1>
+<p>Fundamental constants are defined in <code class="docutils literal notranslate"><span class="pre">constants/fundamental_constants.H</span></code>.
+This file contains physical constants and unit conversion factors, such as
+Boltzmann’s constant, <span class="math notranslate nohighlight">\(k_B\)</span>, and is <strong>automatically generated</strong> by the
+Python script <code class="docutils literal notranslate"><span class="pre">write_fundamental_constants.py</span></code>.</p>
+<p>All constant values are obtained from <code class="docutils literal notranslate"><span class="pre">scipy.constants</span></code> to ensure consistency
+between <code class="docutils literal notranslate"><span class="pre">Microphysics</span></code> and <code class="docutils literal notranslate"><span class="pre">pynucastro</span></code>, the latter is used for
+generating the reaction networks used by <code class="docutils literal notranslate"><span class="pre">Microphysics</span></code>.</p>
+<p>There are two exceptions:</p>
+<ol class="arabic simple">
+<li><p>Constants under the <code class="docutils literal notranslate"><span class="pre">Legacy</span></code> namespace represent outdated values
+historically used in networks such as <code class="docutils literal notranslate"><span class="pre">aprox13</span></code>, <code class="docutils literal notranslate"><span class="pre">aprox19</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">aprox21</span></code>. These constants are retained for backward compatibility
+and should <strong>NOT</strong> be used in other places.</p></li>
+<li><p>Newton’s gravitational constant continues to use an older value to preserve
+<strong>hydrostatic equilibrium</strong> in existing initial models used by <code class="docutils literal notranslate"><span class="pre">Castro</span></code>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The consistency of physical constants between <code class="docutils literal notranslate"><span class="pre">pynucastro</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Microphysics</span></code> is particularly important when using inverse rates derived
+from detailed balance. Discrepancies in constant values can affect the
+agreement between mass fractions obtained from direct integration and those
+computed from nuclear statistical equilibrium (NSE).</p>
+<p>This a subtle point, but important when using NSE evolution mode
+(i.e., when compiled with <code class="docutils literal notranslate"><span class="pre">USE_NSE_NET=TRUE</span></code> and <code class="docutils literal notranslate"><span class="pre">USE_NSE_TABLE=TRUE</span></code>).
+See <a class="reference internal" href="nse.html#ch-nse"><span class="std std-ref">NSE</span></a> for more details.</p>
 </div>
 </section>
 
@@ -150,8 +166,8 @@ have analysis scripts, which we describe in the next sections.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="comprehensive_tests.html" class="btn btn-neutral float-left" title="Comprehensive Unit Tests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="burn_cell.html" class="btn btn-neutral float-right" title="burn_cell" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="runtime_parameters.html" class="btn btn-neutral float-left" title="Parameters by Namespace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="eos.html" class="btn btn-neutral float-right" title="Equations of State" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

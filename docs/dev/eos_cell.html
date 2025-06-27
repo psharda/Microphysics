@@ -19,13 +19,13 @@
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/copybutton.js?v=eaa7b67c"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="jac_cell" href="jac_cell.html" />
-    <link rel="prev" title="burn_cell" href="burn_cell.html" /> 
+    <link rel="prev" title="burn_cell_sdc" href="burn_cell_sdc.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,8 +57,9 @@
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_structures.html">Data Structures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="autodiff.html">Automatic Differentiation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rp_intro.html">Runtime parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build_system.html">Build System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rp_intro.html">Runtime Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fundamental_constants.html">Fundamental Constants</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">EOS and transport</span></p>
 <ul>
@@ -84,13 +85,16 @@
 <p class="caption" role="heading"><span class="caption-text">Util / external libraries</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="util.html">Helper Functions and Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autodiff.html">Automatic Differentiation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Unit tests</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="unit_tests.html">Overview of Unit Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unit_test_runtime_parameters.html">Unit Test Common Runtime Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="comprehensive_tests.html">Comprehensive Unit Tests</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="one_zone_tests.html">One Zone Tests</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="burn_cell.html"><code class="docutils literal notranslate"><span class="pre">burn_cell</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="burn_cell_sdc.html"><code class="docutils literal notranslate"><span class="pre">burn_cell_sdc</span></code></a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">eos_cell</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#getting-started">Getting Started</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#setting-the-thermodynamics">Setting the thermodynamics</a></li>
@@ -158,13 +162,9 @@ test.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">unit_test.density</span></code> : the initial density</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">unit_test.temperature</span></code> : the initial temperature</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">unit_test.small_temp</span></code> : the low temperature cutoff used in the equation of state</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">unit_test.small_dens</span></code> : the low density cutoff used in the equation of state</p></li>
 </ul>
-<p>The composition can be set in the same way as in <code class="docutils literal notranslate"><span class="pre">burn_cell</span></code>, either
-by setting each mass fraction explicitly via the parameters,
-<code class="docutils literal notranslate"><span class="pre">unit_test.X1</span></code>, <code class="docutils literal notranslate"><span class="pre">unit_test.X2</span></code>, …, or forcing them to be all
-equal via <code class="docutils literal notranslate"><span class="pre">unit_test.uniform_xn=1</span></code>.</p>
+<p>The composition can be set either by specifying individual mass fractions
+or setting <code class="docutils literal notranslate"><span class="pre">unit_test.uniform_xn</span></code> as described in <a class="reference internal" href="unit_test_runtime_parameters.html#sec-defining-unit-test-composition"><span class="std std-ref">Defining composition</span></a>.</p>
 </section>
 </section>
 <section id="building-and-running-the-code">
@@ -239,14 +239,14 @@ full <code class="docutils literal notranslate"><span class="pre">eos_t</span></
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="burn_cell.html" class="btn btn-neutral float-left" title="burn_cell" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="burn_cell_sdc.html" class="btn btn-neutral float-left" title="burn_cell_sdc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="jac_cell.html" class="btn btn-neutral float-right" title="jac_cell" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Microphysics Development Team.</p>
+    <p>&#169; Copyright 2025, Microphysics Development Team.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
